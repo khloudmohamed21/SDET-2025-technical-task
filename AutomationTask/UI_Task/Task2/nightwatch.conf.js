@@ -62,11 +62,11 @@ module.exports = {
         'goog:chromeOptions': {
           // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
           args: [
-            '--incognito'
-            //'--no-sandbox',
-            //'--ignore-certificate-errors',
-            //'--allow-insecure-localhost',
-            //'--headless=new'
+            '--incognito', 
+        '--no-sandbox',
+        '--ignore-certificate-errors',
+        '--headless=new'
+            
           ]
         }
       },
