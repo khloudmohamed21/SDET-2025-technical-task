@@ -67,14 +67,6 @@ jobs:
           path: ~/repo
 
       - run:
-          name: Verify repo contents and paths
-          command: |
-            pwd
-            ls -la
-            ls -la AutomationTask
-            ls -la AutomationTask/mock-user-auth
-
-      - run:
           name: Install server dependencies
           command: |
             cd AutomationTask/mock-user-auth && npm install
@@ -87,7 +79,7 @@ jobs:
       - run:
           name: Run Server
           command: |
-            cd AutomationTask/mock-user-auth && npm run dev
+            cd AutomationTask/mock-user-auth && nohup npm run dev > server.log 2>&1 &
 
       - run:
           name: Run API tests
