@@ -10,23 +10,15 @@
 // \_| \_/|_| \__, ||_| |_| \__|  \_/\_/   \__,_| \__| \___||_| |_|
 //             __/ |
 //            |___/
-
+const chromedriver = require('chromedriver');
 module.exports = {
-  // An array of folders (excluding subfolders) where your tests are located;
-  // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['test','nightwatch/examples'],
+  src_folders: ['test', 'nightwatch/examples'],
 
-  // See https://nightwatchjs.org/guide/concepts/page-object-model.html
   page_objects_path: ['nightwatch/page-objects'],
 
-
-  // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
   plugins: [],
-  
-  // See https://nightwatchjs.org/guide/concepts/test-globals.html
+
   globals_path: '',
-  
-  webdriver: {},
 
   test_workers: {
     enabled: true
@@ -44,40 +36,42 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+          args: [
+            '--no-sandbox',
+            '--ignore-certificate-errors',
+            '--headless=new'
+          ]
+        }
       },
 
       use_xpath: true,
-      
+
       webdriver: {
         start_process: true,
-        server_path: ''
-      },
-      
+        server_path: require('chromedriver').path, 
+        port: 9515
+      }
     },
-    
+
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
         'goog:chromeOptions': {
-          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-      args: [
-        '--no-sandbox',
-        '--ignore-certificate-errors',
-        '--headless=new'
-            ]
+          args: [
+            '--no-sandbox',
+            '--ignore-certificate-errors',
+            '--headless=new'
+          ]
         }
       },
 
       webdriver: {
         start_process: true,
-        server_path: '',
-        cli_args: [
-          // --verbose
-        ]
+        server_path: require('chromedriver').path, 
+        port: 9515
       }
-    },
-    
-  },
-  
+    }
+  }
 };

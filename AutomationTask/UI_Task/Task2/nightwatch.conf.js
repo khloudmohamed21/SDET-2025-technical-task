@@ -11,22 +11,16 @@
 //             __/ |
 //            |___/
 
-module.exports = {
-  // An array of folders (excluding subfolders) where your tests are located;
-  // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['test','nightwatch/examples'],
+const chromedriver = require('chromedriver');
 
-  // See https://nightwatchjs.org/guide/concepts/page-object-model.html
+module.exports = {
+  src_folders: ['test', 'nightwatch/examples'],
+
   page_objects_path: ['nightwatch/page-objects'],
 
-
-  // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
   plugins: [],
-  
-  // See https://nightwatchjs.org/guide/concepts/test-globals.html
+
   globals_path: '',
-  
-  webdriver: {},
 
   test_workers: {
     enabled: true
@@ -44,42 +38,48 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+          args: [
+            '--incognito',
+            '--no-sandbox',
+            '--disable-dev-shm-usage',
+            '--ignore-certificate-errors',
+            '--headless=new'
+          ]
+        }
       },
 
       use_xpath: true,
-      
+
       webdriver: {
         start_process: true,
-        server_path: ''
-      },
-      
+        server_path: chromedriver.path,
+        port: 9515,
+        cli_args: []
+      }
     },
-    
+
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
         'goog:chromeOptions': {
-          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
           args: [
-            '--incognito', 
-        '--no-sandbox',
-        '--ignore-certificate-errors',
-        '--headless=new'
-            
+            '--incognito',
+            '--no-sandbox',
+            '--disable-dev-shm-usage',
+            '--ignore-certificate-errors',
+            '--headless=new'
           ]
         }
       },
 
       webdriver: {
         start_process: true,
-        server_path: '',
-        cli_args: [
-          // --verbose
-        ]
+        server_path: chromedriver.path,
+        port: 9515,
+        cli_args: []
       }
-    },
-    
-  },
-  
+    }
+  }
 };
