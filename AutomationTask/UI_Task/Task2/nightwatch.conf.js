@@ -13,7 +13,7 @@
 // Refer to the online docs for more details:
 // https://nightwatchjs.org/gettingstarted/configuration/
 
-const chromedriver = require('chromedriver');
+
 
 module.exports = {
   src_folders: ['test', 'nightwatch/examples'],

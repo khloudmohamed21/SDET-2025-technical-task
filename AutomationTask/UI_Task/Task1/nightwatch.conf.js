@@ -1,4 +1,3 @@
-const chromedriver = require('chromedriver');
 
 module.exports = {
   src_folders: ['test', 'nightwatch/examples'],
