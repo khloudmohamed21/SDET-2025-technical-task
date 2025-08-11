@@ -1,0 +1,57 @@
+version: 2.1
+
+jobs:
+  ui-tests:
+    docker:
+      - image: cimg/node:18.17
+    steps:
+      - checkout
+      - run:
+          name: Install UI Task1 dependencies
+          command: |
+            cd AutomationTask/UI_Task/Task1
+            npm install
+      - run:
+          name: Run UI Task 1
+          command: |
+            cd AutomationTask/UI_Task/Task1
+            npx nightwatch test/homeTest.js
+      - run:
+          name: Run UI Task 2
+          command: |
+            cd AutomationTask/UI_Task/Task1
+            npx nightwatch test/registrationTest.js
+      - run:
+          name: Run UI Task 3
+          command: |
+            cd AutomationTask/UI_Task/Task1
+            npx nightwatch test/searchDressTest.js
+
+  api-tests:
+    docker:
+      - image: cimg/node:18.17
+    steps:
+      - checkout
+      - run:
+          name: Run mock server
+          command: |
+            cd AutomationTask/API_Task
+            npm install
+      - run:
+          name: Run API tests
+          command: |
+            cd AutomationTask/API_Task
+            npm test
+
+workflows:
+  version: 2
+  ui-then-api:
+    jobs:
+      - ui-tests
+      - api-tests:
+          requires:
+            - ui-tests
+          # Run API even if UI fails
+          filters:
+            branches:
+              only: main
