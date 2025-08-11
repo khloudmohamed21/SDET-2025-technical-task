@@ -69,6 +69,7 @@ jobs:
           name: Run Server
           command: |
             cd AutomationTask/mock-user-auth
+            npm install
             npm run dev
 
       - run:
