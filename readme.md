@@ -30,3 +30,7 @@ The project includes:
 │
 ├── .circleci/config.yml    # CircleCI pipeline configuration
 └── package.json
+
+## Circle CI Status badge
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/khloudmohamed21/SDET-2025-technical-task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/khloudmohamed21/SDET-2025-technical-task/tree/main)
