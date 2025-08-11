@@ -4,13 +4,20 @@ executors:
   node-chrome:
     docker:
       - image: cimg/node:18.17-browsers
-    working_directory: ~/repo
+    working_directory: /home/circleci/repo 
+
+  node:
+    docker:
+      - image: cimg/node:18.17
+    working_directory: /home/circleci/repo
 
 jobs:
   ui-tests:
     executor: node-chrome
+    working_directory: /home/circleci/repo
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo 
 
       - run:
           name: Install Google Chrome Stable
@@ -19,7 +26,6 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             sudo apt-get update
             sudo apt-get install -y google-chrome-stable
-
 
       - run:
           name: Install chromedriver
@@ -53,12 +59,13 @@ jobs:
       #       chmod +x node_modules/.bin/nightwatch
       #       npx nightwatch test/searchDressTest.js
 
-
   api-tests:
-    docker:
-      - image: cimg/node:18.17
+    executor: node
+    working_directory: /home/circleci/repo
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo
+
       - run:
           name: Install server dependencies
           command: |
@@ -67,20 +74,17 @@ jobs:
       - run:
           name: Install API dependencies
           command: |
-            cd AutomationTask/API_Task
-            npm install
+            cd AutomationTask/API_Task && npm install
 
       - run:
           name: Run Server
           command: |
-            cd AutomationTask/mock-user-auth
-            npm run dev
+            cd AutomationTask/mock-user-auth && npm run dev
 
       - run:
           name: Run API tests
           command: |
-            cd AutomationTask/API_Task
-            npm test
+            cd AutomationTask/API_Task && npm test
 
 workflows:
   version: 2
