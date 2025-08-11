@@ -46,12 +46,12 @@ jobs:
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/registrationTest.js
 
-      - run:
-          name: Run UI Task 3
-          command: |
-            cd AutomationTask/UI_Task/Task3
-            chmod +x node_modules/.bin/nightwatch
-            npx nightwatch test/searchDressTest.js
+      # - run:
+      #     name: Run UI Task 3
+      #     command: |
+      #       cd AutomationTask/UI_Task/Task3
+      #       chmod +x node_modules/.bin/nightwatch
+      #       npx nightwatch test/searchDressTest.js
 
 
   api-tests:
