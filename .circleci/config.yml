@@ -60,7 +60,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
+          name: Install server dependencies
+          command: |
+            cd AutomationTask/mock-user-auth && npm install
+
+      - run:
+          name: Install API dependencies
           command: |
             cd AutomationTask/API_Task
             npm install
@@ -68,8 +73,7 @@ jobs:
       - run:
           name: Run Server
           command: |
-            cd home/circleci/project/SDET-2025-technical-task-kholoud/AutomationTask/mock-user-auth
-            npm install
+            cd AutomationTask/mock-user-auth
             npm run dev
 
       - run:
