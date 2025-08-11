@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="test.registerLinkedIn" id="test.registerLinkedIn"
+    errors="0" failures="1" hostname="" package="registerLinkedIn" skipped="4"
+    tests="1" time="7.915" timestamp="">
+  
+    <testcase name="Step 1: Open the LinkedIn home page and verify it is loaded" classname="test.registerLinkedIn" time="5.393" assertions="1">  <failure message="Timed out while waiting for element &lt;body&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5317ms)">    at Page.assertHomePageLoaded (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\nightwatch\page-objects\homePage.js:16:10)
+    at Step 1: Open the LinkedIn home page and verify it is loaded (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\registerLinkedIn.js:16:19)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+    
+    <testcase
+      name="Step 2: Click on Join Now button" classname="test.registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 3: Enter email and password, then click Agree &amp; Join" classname="test.registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 4: Enter first name and last name, then click Continue" classname="test.registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 5: Assert that the Security Verification popup is visible" classname="test.registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "checkJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@page/*": ["nightwatch/page-objects/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

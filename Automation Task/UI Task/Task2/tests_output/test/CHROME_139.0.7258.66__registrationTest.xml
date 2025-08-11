@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="test.registrationTest" id="test.registrationTest"
+    errors="0" failures="0" hostname="" package="registrationTest" skipped="0"
+    tests="1" time="9.491" timestamp="">
+  
+    <testcase name="TC01 - Full LinkedIn Registration" classname="test.registrationTest" time="3.951" assertions="8">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

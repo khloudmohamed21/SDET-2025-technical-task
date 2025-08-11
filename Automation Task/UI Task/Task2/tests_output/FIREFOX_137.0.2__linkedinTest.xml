@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="2"
+            tests="1">
+
+  <testsuite name="linkedinTest" id="linkedinTest"
+    errors="0" failures="2" hostname="" package="linkedinTest" skipped="1"
+    tests="1" time="1.042" timestamp="">
+  
+    <testcase name="TC01Steps: - Open the page and verify page loaded" classname="linkedinTest" time="0.05900" assertions="1">  <failure message="Cannot read properties of undefined (reading &#39;assertHomePageLoaded&#39;)">TypeError: Cannot read properties of undefined (reading &#39;assertHomePageLoaded&#39;)
+    at TC01Steps: - Open the page and verify page loaded (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\linkedinTest.js:25:8)</failure>
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       ✖ TypeError
+   browser.page.homePage is not a function
+    - verify if page objects are setup correctly, check &#34;page_objects_path&#34; in your config
+
+    Error location:
+    C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\linkedinTest.js:6
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+     4 | 
+     5 |    before: function (browser) {
+     6 |     this.homePage = browser.page.homePage(); 
+     7 |     this.contactPage = browser.page.contactPage();
+     8 |     browser.url(browser.launch_url);
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+    Stack Trace :
+    at Object.before (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\linkedinTest.js:6:34)
+    at Context.callAsync (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\context.js:549:28)
+    at Context.invokeMethod (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\context.js:493:21)
+    at C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\hooks\_basehook.js:88:49
+    at new Promise (&lt;anonymous&gt;)
+    at BeforeAll.run (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\hooks\_basehook.js:62:14)
+    at Runnable.__runFn (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:471:35)
+    at Runnable.run (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\runnable.js:126:21)
+    at TestSuite.executeRunnable (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:1003:49)
+    at TestSuite.handleRunnable (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:1018:33)
+
+    </system-err>
+  
+
+    
+
+  
+    
+    <testcase
+      name="TC01Steps: - Click on join Now" classname="linkedinTest">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

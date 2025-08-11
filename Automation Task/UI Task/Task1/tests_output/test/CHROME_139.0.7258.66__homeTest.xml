@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="test.homeTest" id="test.homeTest"
+    errors="0" failures="0" hostname="" package="homeTest" skipped="0"
+    tests="1" time="17.70" timestamp="">
+  
+    <testcase name="TC01: Open Home and Contacts Pages and Verify they loaded successfully" classname="test.homeTest" time="5.518" assertions="8">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

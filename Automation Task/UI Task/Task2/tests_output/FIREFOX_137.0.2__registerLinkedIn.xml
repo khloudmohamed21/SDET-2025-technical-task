@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="2"
+            tests="1">
+
+  <testsuite name="registerLinkedIn" id="registerLinkedIn"
+    errors="0" failures="2" hostname="" package="registerLinkedIn" skipped="4"
+    tests="1" time="0.9860" timestamp="">
+  
+    <testcase name="Step 1: Open the LinkedIn home page and verify it is loaded" classname="registerLinkedIn" time="0.06100" assertions="1">  <failure message="Cannot read properties of undefined (reading &#39;assertHomePageLoaded&#39;)">TypeError: Cannot read properties of undefined (reading &#39;assertHomePageLoaded&#39;)
+    at Step 1: Open the LinkedIn home page and verify it is loaded (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\registerLinkedIn.js:16:19)</failure>
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       ✖ TypeError
+   browser.page.homePage is not a function
+    - verify if page objects are setup correctly, check &#34;page_objects_path&#34; in your config
+
+    Error location:
+    C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\registerLinkedIn.js:5
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+     3 | module.exports = {
+     4 |   before: function (browser) {
+     5 |     this.homePage = browser.page.homePage(); 
+     6 |     this.joinNowPage = browser.page.joinNowPage();
+     7 |     this.namePage = browser.page.namePage();
+    –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+    Stack Trace :
+    at Object.before (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\test\registerLinkedIn.js:5:34)
+    at Context.callAsync (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\context.js:549:28)
+    at Context.invokeMethod (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\context.js:493:21)
+    at C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\hooks\_basehook.js:88:49
+    at new Promise (&lt;anonymous&gt;)
+    at BeforeAll.run (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\hooks\_basehook.js:62:14)
+    at Runnable.__runFn (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:471:35)
+    at Runnable.run (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\runnable.js:126:21)
+    at TestSuite.executeRunnable (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:1003:49)
+    at TestSuite.handleRunnable (C:\Users\kholoud.mohamed\Downloads\Automation Task\Task2\node_modules\nightwatch\lib\testsuite\index.js:1018:33)
+
+    </system-err>
+  
+
+    
+
+  
+    
+    <testcase
+      name="Step 2: Click on Join Now button" classname="registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 3: Enter email and password, then click Agree &amp; Join" classname="registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 4: Enter first name and last name, then click Continue" classname="registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Step 5: Assert that the Security Verification popup is visible" classname="registerLinkedIn">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
