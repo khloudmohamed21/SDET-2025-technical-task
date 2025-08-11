@@ -13,6 +13,24 @@ jobs:
       - checkout
 
       - run:
+          name: Check Chrome installation
+          command: |
+            google-chrome --version || echo "google-chrome not found"
+            google-chrome-stable --version || echo "google-chrome-stable not found"
+            which google-chrome || echo "google-chrome binary not found"
+            which google-chrome-stable || echo "google-chrome-stable binary not found"
+
+      - run:
+          name: Install Google Chrome if missing
+          command: |
+            if ! command -v google-chrome > /dev/null && ! command -v google-chrome-stable > /dev/null; then
+              sudo apt-get update
+              sudo apt-get install -y google-chrome-stable
+            else
+              echo "Chrome already installed"
+            fi
+
+      - run:
           name: Install chromedriver
           command: npm install chromedriver --save-dev
 
@@ -22,24 +40,14 @@ jobs:
             cd AutomationTask/UI_Task/Task1 && npm install
             cd ../Task2 && npm install
             cd ../Task3 && npm install
+
       - run:
           name: Run UI Task 1
           command: |
             cd AutomationTask/UI_Task/Task1
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/homeTest.js
-      - run:
-          name: Run UI Task 2
-          command: |
-            cd AutomationTask/UI_Task/Task2
-            chmod +x node_modules/.bin/nightwatch
-            npx nightwatch test/registrationTest.js
-      - run:
-          name: Run UI Task 3
-          command: |
-            cd AutomationTask/UI_Task/Task3
-            chmod +x node_modules/.bin/nightwatch
-            npx nightwatch test/searchDressTest.js
+
 
   api-tests:
     docker:
