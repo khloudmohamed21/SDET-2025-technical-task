@@ -10,12 +10,13 @@ module.exports = {
 
   test_settings: {
     default: {
-       launch_url: 'https://automationpractice.multiformis.com/index.php',
+      launch_url: 'https://automationpractice.multiformis.com/index.php',
       desiredCapabilities: {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
           args: [
+            '--incognito',
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
@@ -25,7 +26,8 @@ module.exports = {
           ]
         }
       },
- 
+
+      use_xpath: false,  
 
       webdriver: {
         start_process: true,
