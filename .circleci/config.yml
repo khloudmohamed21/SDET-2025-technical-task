@@ -68,7 +68,7 @@ jobs:
       - run:
           name: Run Server
           command: |
-            cd home/circleci/project/AutomationTask/mock-user-auth
+            cd home/circleci/project/SDET-2025-technical-task-kholoud/AutomationTask/mock-user-auth
             npm install
             npm run dev
 
