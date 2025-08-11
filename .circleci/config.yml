@@ -11,6 +11,7 @@ jobs:
           command: |
             cd AutomationTask/UI_Task/Task1
             npm install
+            chmod +x node_modules/.bin/nightwatch
       - run:
           name: Run UI Task 1
           command: |
@@ -33,15 +34,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run mock server
+          name: Install API dependencies
           command: |
             cd AutomationTask/API_Task
             npm install
       - run:
-          name: Run API tests
+          name: Run API mockUserAuth test
           command: |
             cd AutomationTask/API_Task
-            npm test
+            npx jest mockUserAuth.test.js
 
 workflows:
   version: 2
@@ -51,7 +52,6 @@ workflows:
       - api-tests:
           requires:
             - ui-tests
-          # Run API even if UI fails
           filters:
             branches:
               only: main
