@@ -1,27 +1,16 @@
 version: 2.1
 
+executors:
+  node-chrome:
+    docker:
+      - image: cimg/node:18.17-browsers
+    working_directory: ~/repo
+
 jobs:
   ui-tests:
-    docker:
-      - image: cimg/node:18.17
+    executor: node-chrome
     steps:
       - checkout
-      - run:
-          name: Install Google Chrome
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y wget gnupg
-            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable
-
-
-      - run:
-          name: Install ChromeDriver
-          command: |
-            sudo apt-get install -y chromium-chromedriver
-            export PATH=$PATH:/usr/lib/chromium-browser/
       - run:
           name: Install dependencies for all UI tasks
           command: |
@@ -32,19 +21,16 @@ jobs:
           name: Run UI Task 1
           command: |
             cd AutomationTask/UI_Task/Task1
-            chmod +x ./node_modules/.bin/nightwatch
             npx nightwatch test/homeTest.js
       - run:
           name: Run UI Task 2
           command: |
             cd AutomationTask/UI_Task/Task2
-            chmod +x ./node_modules/.bin/nightwatch
             npx nightwatch test/registrationTest.js
       - run:
           name: Run UI Task 3
           command: |
             cd AutomationTask/UI_Task/Task3
-            chmod +x ./node_modules/.bin/nightwatch
             npx nightwatch test/searchDressTest.js
 
   api-tests:
