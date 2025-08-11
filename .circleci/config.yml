@@ -12,6 +12,10 @@ jobs:
     steps:
       - checkout
       - run:
+    name: Install chromedriver
+    command: npm install chromedriver --save-dev
+    
+      - run:
           name: Install dependencies for all UI tasks
           command: |
             cd AutomationTask/UI_Task/Task1 && npm install
