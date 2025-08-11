@@ -7,6 +7,12 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies for all UI tasks
+          command: |
+            cd AutomationTask/UI_Task/Task1 && npm install
+            cd ../Task2 && npm install
+            cd ../Task3 && npm install
+      - run:
           name: Run UI Task 1
           command: |
             cd AutomationTask/UI_Task/Task1
@@ -28,7 +34,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run mock server
+          name: Install dependencies
           command: |
             cd AutomationTask/API_Task
             npm install
@@ -46,7 +52,6 @@ workflows:
       - api-tests:
           requires:
             - ui-tests
-          # Run API even if UI fails
           filters:
             branches:
               only: main
