@@ -5,9 +5,9 @@
 
   <testsuite name="test.homeTest" id="test.homeTest"
     errors="0" failures="0" hostname="" package="homeTest" skipped="0"
-    tests="1" time="31.59" timestamp="">
+    tests="1" time="7.836" timestamp="">
   
-    <testcase name="TC01: Open Home and Contacts Pages and Verify they loaded successfully" classname="test.homeTest" time="2.303" assertions="8">
+    <testcase name="TC01: Open Home and Contacts Pages and Verify they loaded successfully" classname="test.homeTest" time="1.609" assertions="8">
 
     
 
