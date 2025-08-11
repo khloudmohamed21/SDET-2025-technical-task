@@ -1,15 +1,4 @@
-// Refer to the online docs for more details:
-// https://nightwatchjs.org/gettingstarted/configuration/
-//
-
-//  _   _  _         _      _                     _          _
-// | \ | |(_)       | |    | |                   | |        | |
-// |  \| | _   __ _ | |__  | |_ __      __  __ _ | |_   ___ | |__
-// | . ` || | / _` || '_ \ | __|\ \ /\ / / / _` || __| / __|| '_ \
-// | |\  || || (_| || | | || |_  \ V  V / | (_| || |_ | (__ | | | |
-// \_| \_/|_| \__, ||_| |_| \__|  \_/\_/   \__,_| \__| \___||_| |_|
-//             __/ |
-//            |___/
+const chromedriver = require('chromedriver');
 
 module.exports = {
   src_folders: ['test', 'nightwatch/examples'],
@@ -21,7 +10,7 @@ module.exports = {
   globals_path: '',
 
   test_workers: {
-    enabled: true
+    enabled: true // ✅ تشغيل الاختبارات على أكثر من عامل
   },
 
   test_settings: {
@@ -37,11 +26,15 @@ module.exports = {
 
       desiredCapabilities: {
         browserName: 'chrome',
+        acceptInsecureCerts: true,
         'goog:chromeOptions': {
           args: [
             '--no-sandbox',
+            '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
-            '--headless=new'
+            '--headless=new', // أحدث نسخة من الـ headless
+            '--disable-gpu',
+            '--window-size=1920,1080'
           ]
         }
       },
@@ -50,7 +43,7 @@ module.exports = {
 
       webdriver: {
         start_process: true,
-        server_path: require('chromedriver').path, 
+        server_path: chromedriver.path,
         port: 9515
       }
     },
@@ -58,18 +51,22 @@ module.exports = {
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
+        acceptInsecureCerts: true,
         'goog:chromeOptions': {
           args: [
             '--no-sandbox',
+            '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
-            '--headless=new'
+            '--headless=new',
+            '--disable-gpu',
+            '--window-size=1920,1080'
           ]
         }
       },
 
       webdriver: {
         start_process: true,
-        server_path: require('chromedriver').path, 
+        server_path: chromedriver.path,
         port: 9515
       }
     }

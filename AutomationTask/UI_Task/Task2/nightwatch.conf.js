@@ -10,6 +10,8 @@
 // \_| \_/|_| \__, ||_| |_| \__|  \_/\_/   \__,_| \__| \___||_| |_|
 //             __/ |
 //            |___/
+// Refer to the online docs for more details:
+// https://nightwatchjs.org/gettingstarted/configuration/
 
 const chromedriver = require('chromedriver');
 
@@ -29,7 +31,7 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: 'https://www.linkedin.com/',
+      launch_url: 'https://automationpractice.multiformis.com/index.php',
 
       screenshots: {
         enabled: false,
@@ -45,7 +47,9 @@ module.exports = {
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
-            '--headless=new'
+            '--headless=new',
+            '--disable-gpu',
+            '--window-size=1920,1080'
           ]
         }
       },
@@ -69,7 +73,9 @@ module.exports = {
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
-            '--headless=new'
+            '--headless=new',
+            '--disable-gpu',
+            '--window-size=1920,1080'
           ]
         }
       },
