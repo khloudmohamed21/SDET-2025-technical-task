@@ -7,26 +7,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install UI Task1 dependencies
+          name: Install all UI dependencies
           command: |
-            cd AutomationTask/UI_Task/Task1
-            npm install
-            chmod +x node_modules/.bin/nightwatch
+            cd AutomationTask/UI_Task/Task1 && npm install
+            cd ../Task2 && npm install
+            cd ../Task3 && npm install
       - run:
-          name: Run UI Task 1
-          command: |
-            cd AutomationTask/UI_Task/Task1
-            npx nightwatch test/homeTest.js
-      - run:
-          name: Run UI Task 2
-          command: |
-            cd AutomationTask/UI_Task/Task1
-            npx nightwatch test/registrationTest.js
-      - run:
-          name: Run UI Task 3
-          command: |
-            cd AutomationTask/UI_Task/Task1
-            npx nightwatch test/searchDressTest.js
+          name: Run all UI Nightwatch tests
+          command: npx nightwatch AutomationTask/UI_Task/**/test/*.js
 
   api-tests:
     docker:
@@ -39,19 +27,14 @@ jobs:
             cd AutomationTask/API_Task
             npm install
       - run:
-          name: Run API mockUserAuth test
-          command: |
-            cd AutomationTask/API_Task
-            npx jest mockUserAuth.test.js
+          name: Run all API tests
+          command: npx jest AutomationTask/API_Task/tests/*.js
 
 workflows:
   version: 2
-  ui-then-api:
+  test-all:
     jobs:
       - ui-tests
       - api-tests:
           requires:
             - ui-tests
-          filters:
-            branches:
-              only: main
