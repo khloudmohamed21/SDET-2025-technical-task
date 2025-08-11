@@ -4,20 +4,19 @@ executors:
   node-chrome:
     docker:
       - image: cimg/node:18.17-browsers
-    working_directory: /home/circleci/repo 
+    working_directory: /home/circleci/project
 
   node:
     docker:
       - image: cimg/node:18.17
-    working_directory: /home/circleci/repo
+    working_directory: /home/circleci/project
 
 jobs:
   ui-tests:
     executor: node-chrome
-    working_directory: /home/circleci/repo
+    working_directory: /home/circleci/project
     steps:
-      - checkout:
-          path: ~/repo 
+      - checkout   # no need to override path; default is /home/circleci/project
 
       - run:
           name: Install Google Chrome Stable
@@ -61,10 +60,9 @@ jobs:
 
   api-tests:
     executor: node
-    working_directory: /home/circleci/repo
+    working_directory: /home/circleci/project
     steps:
-      - checkout:
-          path: ~/repo
+      - checkout   # same default location
 
       - run:
           name: Install server dependencies
@@ -91,9 +89,4 @@ workflows:
   ui-then-api:
     jobs:
       - ui-tests
-      - api-tests:
-          requires:
-            - ui-tests
-          filters:
-            branches:
-              only: main
+      - api-tests  
