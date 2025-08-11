@@ -25,8 +25,7 @@ module.exports = {
           ]
         }
       },
-
-      use_xpath: true,  
+ 
 
       webdriver: {
         start_process: true,

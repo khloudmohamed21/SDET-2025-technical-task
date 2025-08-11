@@ -64,6 +64,13 @@ jobs:
           command: |
             cd AutomationTask/API_Task
             npm install
+
+      - run:
+          name: Run Server
+          command: |
+            cd AutomationTask/mock-user-auth
+            npm run dev
+
       - run:
           name: Run API tests
           command: |
