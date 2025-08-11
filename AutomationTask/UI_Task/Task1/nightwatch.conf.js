@@ -15,7 +15,7 @@ module.exports = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-          binary: '/usr/bin/google-chrome-stable',
+          binary: '/usr/bin/chrome',
           args: [
             '--no-sandbox',
             '--disable-dev-shm-usage',
