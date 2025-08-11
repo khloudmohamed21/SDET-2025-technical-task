@@ -10,7 +10,7 @@
 // \_| \_/|_| \__, ||_| |_| \__|  \_/\_/   \__,_| \__| \___||_| |_|
 //             __/ |
 //            |___/
-const chromedriver = require('chromedriver');
+
 module.exports = {
   src_folders: ['test', 'nightwatch/examples'],
 
