@@ -1,46 +1,60 @@
 version: 2.1
 
-executors:
-  node-executor:
-    docker:
-      - image: cimg/node:20.11
-    working_directory: ~/project
-
 jobs:
   ui-tests:
-    executor: node-executor
+    docker:
+      - image: cimg/node:18.17
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run Nightwatch UI Tests
+          name: Install UI Task1 dependencies
           command: |
-            # تأكد إن ملف الـ config موجود
-            if [ ! -f AutomationTask/UI_Task/nightwatch.conf.js ]; then
-              echo "❌ Nightwatch config file not found!"
-              exit 1
-            fi
-
-            # شغل الاختبارات من المسار الصحيح
-            npx nightwatch --config AutomationTask/UI_Task/nightwatch.conf.js "AutomationTask/UI_Task/**/test/*.js"
+            cd AutomationTask/UI_Task/Task1
+            npm install
+      - run:
+          name: Run UI Task 1
+          command: |
+            cd AutomationTask/UI_Task/Task1
+            chmod +x node_modules/.bin/nightwatch
+            npx nightwatch test/homeTest.js
+      - run:
+          name: Run UI Task 2
+          command: |
+            cd AutomationTask/UI_Task/Task2
+            chmod +x node_modules/.bin/nightwatch
+            npx nightwatch test/registrationTest.js
+      - run:
+          name: Run UI Task 3
+          command: |
+            cd AutomationTask/UI_Task/Task3
+            chmod +x node_modules/.bin/nightwatch
+            npx nightwatch test/searchDressTest.js
 
   api-tests:
-    executor: node-executor
+    docker:
+      - image: cimg/node:18.17
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run API Tests
+          name: Run mock server
           command: |
-            npx playwright test --config=AutomationTask/API_Task/playwright.config.js
+            cd AutomationTask/API_Task
+            npm install
+      - run:
+          name: Run API tests
+          command: |
+            cd AutomationTask/API_Task
+            npm test
 
 workflows:
   version: 2
-  test_all:
+  ui-then-api:
     jobs:
       - ui-tests
-      - api-tests
+      - api-tests:
+          requires:
+            - ui-tests
+          # Run API even if UI fails
+          filters:
+            branches:
+              only: main
