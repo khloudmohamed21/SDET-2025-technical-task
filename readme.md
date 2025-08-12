@@ -33,4 +33,6 @@ The project includes:
 
 ## Circle CI Status badge
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/khloudmohamed21/SDET-2025-technical-task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/khloudmohamed21/SDET-2025-technical-task/tree/main)
+# My Project
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/khloudmohamed21/SDET-2025-technical-task/tree/main.svg?style=flat)](https://dl.circleci.com/status-badge/redirect/gh/khloudmohamed21/SDET-2025-technical-task/tree/main)
