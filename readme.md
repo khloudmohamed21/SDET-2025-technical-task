@@ -32,5 +32,13 @@ The project includes:
 ├── .circleci/config.yml    # CircleCI pipeline configuration
 └── package.json
 
+## Notes about Test Results
 
+The **CircleCI** status badge may sometimes show a "Fail" state because some tests are intentionally designed to fail as part of negative testing.  
+These tests are important to ensure correct application behavior when handling invalid inputs or unexpected scenarios. Examples include:  
+
+- **UI Task:** Searching for specific products and verifying that some results do not match the search term.  
+- **API Task:** Sending requests with missing parameters or invalid data, and verifying the returned error responses (including cases not fully covered in the documentation).  
+
+These failures are expected and are part of the intended test coverage.
 
