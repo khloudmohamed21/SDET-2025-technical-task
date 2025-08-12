@@ -79,7 +79,14 @@ jobs:
       - run:
           name: Run Server
           command: |
-            cd AutomationTask/mock-user-auth && nohup npm run dev > server.log 2>&1 &
+            cd AutomationTask/mock-user-auth
+            nohup npm run dev > server.log 2>&1 &
+            echo "Waiting for server to be ready on port 3000..."
+            for i in {1..30}; do
+              nc -z localhost 3000 && break
+              echo "Waiting..."
+              sleep 2
+            done
 
       - run:
           name: Run API tests
