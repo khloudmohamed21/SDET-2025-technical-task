@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="test.searchDressTest" id="test.searchDressTest"
+    errors="1" failures="0" hostname="" package="searchDressTest" skipped="1"
+    tests="0" time="0.001000" timestamp="">
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [Error] spawn /usr/lib/chromium-browser/chromedriver ENOENT
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;/usr/lib/chromium-browser/chromedriver&#39;,
+     port: 9515,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+    </system-err>
+  
+
+    
+    <error message="An error occurred while creating a new ChromeDriver session: [Error] spawn /usr/lib/chromium-browser/chromedriver ENOENT"><![CDATA[
+      Error: An error occurred while creating a new ChromeDriver session: [Error] spawn /usr/lib/chromium-browser/chromedriver ENOENT
+    at C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\node_modules\selenium-webdriver\remote\index.js:256:70
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      ]]></error>  
+
+  
+    
+    <testcase
+      name="Search for Dress and Verify Results" classname="test.searchDressTest">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
