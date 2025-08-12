@@ -84,7 +84,9 @@ jobs:
       - run:
           name: Run API tests
           command: |
-            cd AutomationTask/API_Task && npm test
+            cd AutomationTask/API_Task
+            chmod +x node_modules/.bin/jest
+            npm test
 
 workflows:
   version: 2
