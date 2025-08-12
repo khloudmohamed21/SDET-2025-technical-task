@@ -5,9 +5,9 @@
 
   <testsuite name="test.searchDressTest" id="test.searchDressTest"
     errors="0" failures="2" hostname="" package="searchDressTest" skipped="0"
-    tests="1" time="11.24" timestamp="">
+    tests="1" time="9.584" timestamp="">
   
-    <testcase name="Search for Dress and Verify Results" classname="test.searchDressTest" time="11.24" assertions="9">
+    <testcase name="Search for Dress and Verify Results" classname="test.searchDressTest" time="9.582" assertions="9">
 
     
 
@@ -21,9 +21,9 @@
 
     
 
-      <failure message="Failed [ok]: (&#34;Faded Short Sleeves T-shirt&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (1ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\Automation Task\UI Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
+      <failure message="Failed [ok]: (&#34;Faded Short Sleeves T-shirt&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (0ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
 
-      <failure message="Failed [ok]: (&#34;Blouse&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (0ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\Automation Task\UI Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
+      <failure message="Failed [ok]: (&#34;Blouse&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (0ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
 
     
     </testcase>
