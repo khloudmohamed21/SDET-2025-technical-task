@@ -56,7 +56,6 @@ jobs:
           command: |
            cd AutomationTask/UI_Task/Task3
            chmod +x node_modules/.bin/nightwatch
-           chmod +x node_modules/chromedriver/lib/chromedriver/chromedriver
            npx nightwatch test/searchDressTest.js
 
 
