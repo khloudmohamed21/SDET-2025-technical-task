@@ -28,9 +28,15 @@ jobs:
             sudo apt-get install -y google-chrome-stable
 
       - run:
-          name: Install dependencies for Task 1
+          name: Install chromedriver
+          command: npm install chromedriver --save-dev
+
+      - run:
+          name: Install dependencies for all UI tasks
           command: |
             cd AutomationTask/UI_Task/Task1 && npm install
+            cd ../Task2 && npm install
+            cd ../Task3 && npm install
 
       - run:
           name: Run UI Task 1
@@ -40,30 +46,19 @@ jobs:
             npx nightwatch test/homeTest.js
 
       - run:
-          name: Install dependencies for Task 2
-          command: |
-            cd AutomationTask/UI_Task/Task2 && npm install
-
-      - run:
           name: Run UI Task 2
           command: |
             cd AutomationTask/UI_Task/Task2
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/registrationTest.js
-
-      - run:
-          name: Install chromedriver and dependencies for Task 3
-          command: |
-            cd AutomationTask/UI_Task/Task3
-            npm install chromedriver --save-dev
-            npm install
-
       - run:
           name: Run UI Task 3
           command: |
-            cd AutomationTask/UI_Task/Task3
-            chmod +x node_modules/.bin/nightwatch
-            npx nightwatch test/searchDressTest.js
+           cd AutomationTask/UI_Task/Task3
+           chmod +x node_modules/.bin/nightwatch
+           chmod +x node_modules/chromedriver/lib/chromedriver/chromedriver
+           npx nightwatch test/searchDressTest.js
+
 
   api-tests:
     executor: node
