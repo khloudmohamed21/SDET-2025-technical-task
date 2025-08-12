@@ -16,7 +16,6 @@ module.exports = {
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
           args: [
-            '--incognito',
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
