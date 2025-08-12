@@ -51,14 +51,14 @@ jobs:
             cd AutomationTask/UI_Task/Task2
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/registrationTest.js
+
       - run:
           name: Run UI Task 3
           command: |
-           cd AutomationTask/UI_Task/Task3
-           chmod +x node_modules/.bin/nightwatch
-           chmod +x node_modules/chromedriver/lib/chromedriver/chromedriver
-           npx nightwatch test/searchDressTest.js
-
+            cd AutomationTask/UI_Task/Task3
+            chmod +x node_modules/.bin/nightwatch
+            # Removed chmod on chromedriver due to file not found error
+            npx nightwatch test/searchDressTest.js
 
   api-tests:
     executor: node
