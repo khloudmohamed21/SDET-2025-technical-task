@@ -1,4 +1,5 @@
-# SDET 2025 - Technical Task
+# SDET-2025-technical-task [![CircleCI](https://dl.circleci.com/status-badge/img/gh/khloudmohamed21/SDET-2025-technical-task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/khloudmohamed21/SDET-2025-technical-task/tree/main)
+
 
 ## 📌 Overview
 This repository contains the solution for the **SDET 2025 Technical Task**, covering **UI automation**, **API testing**, bug reporting, and CI/CD setup using CircleCI.
@@ -31,6 +32,5 @@ The project includes:
 ├── .circleci/config.yml    # CircleCI pipeline configuration
 └── package.json
 
-## Circle CI Status badge
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/khloudmohamed21/SDET-2025-technical-task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/khloudmohamed21/SDET-2025-technical-task/tree/main)
+
