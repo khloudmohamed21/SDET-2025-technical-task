@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="2"
+            failures="1"
             tests="1">
 
   <testsuite name="test.searchDressTest" id="test.searchDressTest"
-    errors="0" failures="2" hostname="" package="searchDressTest" skipped="0"
-    tests="1" time="10.84" timestamp="">
+    errors="0" failures="1" hostname="" package="searchDressTest" skipped="0"
+    tests="1" time="12.42" timestamp="">
   
-    <testcase name="Search for Dress and Verify Results" classname="test.searchDressTest" time="10.83" assertions="9">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-      <failure message="Failed [ok]: (&#34;Faded Short Sleeves T-shirt&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (0ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
-
-      <failure message="Failed [ok]: (&#34;Blouse&#34; does NOT contain &#34;dress&#34;) - expected &#34;true&#34; but got: &#34;false&#34; (0ms)">    at NightwatchAPI.&lt;anonymous&gt; (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\nightwatch\page-objects\searchResultsPage.js:12:25)</failure>
+    <testcase name="Search for Dress and Verify Results" classname="test.searchDressTest" time="12.42" assertions="1">  <failure message="Timed out while waiting for element &lt;//input[@id=&#34;search_query_top&#34;]&gt; to be present for 10000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (10002ms)">    at Page.searchFor (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\nightwatch\page-objects\homePage.js:15:10)
+    at Search for Dress and Verify Results (C:\Users\kholoud.mohamed\Downloads\SDET-2025-technical-task-kholoud\AutomationTask\UI_Task\Task3\test\searchDressTest.js:8:14)</failure>
 
     
     </testcase>
