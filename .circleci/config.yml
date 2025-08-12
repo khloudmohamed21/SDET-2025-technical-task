@@ -57,7 +57,6 @@ jobs:
           command: |
             cd AutomationTask/UI_Task/Task3
             chmod +x node_modules/.bin/nightwatch
-            npx chromedriver --port=9515 &    # تشغيل chromedriver في الخلفية
             npx nightwatch test/searchDressTest.js
 
   api-tests:

@@ -4,8 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start:chromedriver": "chromedriver --port=9515",
-    "test": "nightwatch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +13,6 @@
   "devDependencies": {
     "@types/nightwatch": "^2.3.32",
     "@types/selenium-webdriver": "^4.1.28",
-    "chromedriver": "^139.0.0",
     "nightwatch": "^3.12.2"
-  },
-  "dependencies": {
-    "mock-user-auth": "^1.0.15"
   }
 }

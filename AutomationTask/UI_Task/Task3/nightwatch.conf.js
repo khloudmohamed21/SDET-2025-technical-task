@@ -16,6 +16,7 @@ module.exports = {
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
           args: [
+            '--incognito',
             '--no-sandbox',
             '--disable-dev-shm-usage',
             '--ignore-certificate-errors',
@@ -29,9 +30,9 @@ module.exports = {
       use_xpath: false,
 
       webdriver: {
-        start_process: true,       
-        host: '127.0.0.1',          
-        port: 9515                  
+        start_process: true,
+        server_path: chromedriver.path, 
+        port: 9515
       }
     }
   }
