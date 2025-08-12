@@ -6,7 +6,7 @@ module.exports = {
     browser.url(browser.launch_url);
 
     homePage.searchFor('dress');
-//expected to fail because some 
+//expected to fail because some products not contain the word 'dress'
     searchResultsPage
       .waitForElementVisible('@productTitles', 10000)
       .verifyResultsContain('dress');

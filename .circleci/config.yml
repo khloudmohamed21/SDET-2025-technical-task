@@ -12,13 +12,12 @@ executors:
     working_directory: /home/circleci/repo
 
 jobs:
-  ui-tests:
+
+  install-ui-dependencies:
     executor: node-chrome
-    working_directory: /home/circleci/repo
     steps:
       - checkout:
           path: ~/repo 
-
       - run:
           name: Install Google Chrome Stable
           command: |
@@ -26,32 +25,49 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
             sudo apt-get update
             sudo apt-get install -y google-chrome-stable
-
       - run:
           name: Install chromedriver
           command: npm install chromedriver --save-dev
-
       - run:
           name: Install dependencies for all UI tasks
           command: |
             cd AutomationTask/UI_Task/Task1 && npm install
             cd ../Task2 && npm install
             cd ../Task3 && npm install
+      - persist_to_workspace:
+          root: .
+          paths:
+            - AutomationTask
 
+  ui-test-1:
+    executor: node-chrome
+    steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Run UI Task 1
           command: |
             cd AutomationTask/UI_Task/Task1
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/homeTest.js
-
+            
+  ui-test-2:
+    executor: node-chrome
+    steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Run UI Task 2
           command: |
             cd AutomationTask/UI_Task/Task2
             chmod +x node_modules/.bin/nightwatch
             npx nightwatch test/registrationTest.js
-
+            
+  ui-test-3:
+    executor: node-chrome
+    steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Run UI Task 3
           command: |
@@ -61,21 +77,17 @@ jobs:
 
   api-tests:
     executor: node
-    working_directory: /home/circleci/repo
     steps:
       - checkout:
           path: ~/repo
-
       - run:
           name: Install server dependencies
           command: |
             cd AutomationTask/mock-user-auth && npm install
-
       - run:
           name: Install API dependencies
           command: |
             cd AutomationTask/API_Task && npm install
-
       - run:
           name: Run Server
           command: |
@@ -87,7 +99,6 @@ jobs:
               echo "Waiting..."
               sleep 2
             done
-
       - run:
           name: Run API tests
           command: |
@@ -97,12 +108,19 @@ jobs:
 
 workflows:
   version: 2
-  ui-then-api:
+  ui-tests-pipeline:
     jobs:
-      - ui-tests
-      - api-tests:
+      - install-ui-dependencies
+      - ui-test-1:
           requires:
-            - ui-tests
-          filters:
-            branches:
-              only: main
+            - install-ui-dependencies
+      - ui-test-2:
+          requires:
+            - install-ui-dependencies
+      - ui-test-3:
+          requires:
+            - install-ui-dependencies
+
+  api-tests-pipeline:
+    jobs:
+      - api-tests
