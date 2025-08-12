@@ -97,12 +97,7 @@ jobs:
 
 workflows:
   version: 2
-  ui-then-api:
+  ui-and-api:
     jobs:
       - ui-tests
-      - api-tests:
-          requires:
-            - ui-tests
-          filters:
-            branches:
-              only: main
+      - api-tests
